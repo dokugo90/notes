@@ -19,7 +19,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(upload.array()); 
 app.use(express.static(path.join(__dirname, 'notes/build')));
 
-app.get('*', (req, res) => {
+let ddjanjna = "dadajd";
+
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'notes/build', 'index.html'))
 })
 
