@@ -1,0 +1,447 @@
+:root {
+  font-family: 'Concert One', cursive;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: auto;
+}
+
+.add-note {
+  position: absolute;
+  right: 5%;
+  top: 25%;
+  transform: translateY(-50px, -50px);
+  background-color: transparent;
+  color: white;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  transition: .5s;
+  outline: none;
+}
+
+.note-container {
+  display: flex;
+  flex-direction: column;
+  flex-flow: column;
+  
+  justify-content: start;
+  min-width: 200px;
+  width: 400px;
+  height: 120px;
+  background-color: transparent;
+  padding-left: 20px;
+}
+
+.note-container:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.textarea-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-note {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(
+      to right,
+      rgba(0, 153, 153, 1) 0%,
+    rgba(0, 153, 153, 1) 100%
+    );
+    color: black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transform: scale(0);
+    transform-origin: -100px;
+    transition: .5s;
+    position: absolute;
+    top: -11%; 
+    left: 36%;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+input {
+  width: 150px;
+  margin: 0 auto;
+  border: none;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.create-note button {
+  margin: 0 auto;
+  background-color: rgba(153, 50, 204, 1);
+  padding: .5em 1.5em;
+  font-weight: bolder;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.show-note {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(1) translate(-50%, -50%);
+}
+
+.description-flex p {
+  display: inline-block;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.description {
+  margin-top: -20px;
+}
+
+.last-saved {
+  margin-top: -28px;
+  font-size: 10px;
+  font-weight: bolder;
+}
+
+.delete-btn {
+  color: rgba(255, 0, 0, .8);
+  font-weight: 600;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  margin-top: -14px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: -6px;
+}
+
+.delete-flex {
+ 
+}
+
+.notes-text {
+  height: 30px;
+  color: rgba(0, 153, 153, 1);
+  font-weight: bolder;
+  margin-top: 60px;
+}
+
+.notes-flex-container {
+    position: absolute;
+    top: 11.5%;
+}
+
+.rotate {
+  rotate: 45deg;
+}
+
+@media (max-width: 832px) {
+  .drawer {
+    transition: .5s;
+    z-index: 2;
+    width: clamp(270px, 40%, 300px);
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    float: left;
+    background: linear-gradient(
+      to right,
+      rgba(153, 50, 204, 1)  0%,
+      rgba(0, 153, 153, 1) 100%
+    );
+    justify-content: center;
+    gap: 0px;
+    margin-top: 0px;
+    overflow-x: hidden;
+    flex-direction: column;
+    position: absolute;
+    transform: translateX(-400px);
+    transform-origin: left;
+  }
+
+  .menu {
+    color: black;
+    visibility: visible;
+    cursor: pointer;
+  }
+
+  .add-note-container {
+    position: absolute;
+    display: flex;
+    top: 0%;
+    background: linear-gradient(
+      to right,
+      rgba(153, 50, 204, 1)  0%,
+      rgba(0, 153, 153, 1) 100%
+    );
+    width: clamp(270px, 40%, 300px);
+    border-top-right-radius: 15px;
+  }
+  textarea {
+    resize: none;
+    width: clamp(270px, 40%, 300px);
+    height: 300px;
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    outline: none;
+  }
+}
+
+@media (min-width: 832px) {
+  .menu {
+    color: black;
+    visibility: hidden;
+  }
+
+  .drawer {
+    transition: .5s;
+    transform: scale(1);
+    transform-origin: left;
+    z-index: 2;
+    width: 400px;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    float: left;
+    background: linear-gradient(
+      to right,
+      rgba(153, 50, 204, 1)  0%,
+      rgba(0, 153, 153, 1) 100%
+    );
+    justify-content: center;
+    gap: 0px;
+    margin-top: 0px;
+    overflow-x: hidden;
+    flex-direction: column;
+  }
+  .add-note-container {
+    position: absolute;
+    display: flex;
+    top: 0%;
+    background: linear-gradient(
+      to right,
+      rgba(153, 50, 204, 1)  0%,
+      rgba(0, 153, 153, 1) 100%
+    );
+    width: 400px;
+    border-top-right-radius: 15px;
+  }
+  textarea {
+    resize: none;
+    width: 400px;
+    height: 300px;
+    background-color: rgba(153, 50, 204, 1);
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    outline: none;
+  }
+}
+
+.show-menu {
+  transform: translateX(0px);
+  transform-origin: left;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .6);
+  position: absolute;
+  z-index: -1;
+  top: 2.9%;
+  transition: .5s;
+}
+
+.save {
+  cursor: pointer;
+}
+
+.control-panel {
+    width: 300px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.control-panel i {
+  color: black;
+  cursor: pointer;
+}
+
+.color-picker  {
+  cursor: pointer;
+  -webkit-appearance: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  border: none;
+  transition: 300ms ease-in-out;
+ margin-left: -0px;
+}
+
+.color-picker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color-picker::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.control-panel-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.sign-in-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  background-color: transparent;
+  font-weight: bolder;
+  padding: .5em .5em;
+  transition: .1s;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.sign-in-btn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.one {
+  color: #4885ED;
+}
+.two {
+  color: #db3236;
+}
+.three {
+  color: #f4c20d;
+}
+.five {
+  color: #3cba54;
+}
+
+svg {
+  animation: rotate 1s alternate infinite;
+  transition: .2s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-26deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-26deg);
+  }
+}
+
+.sign-in-btn-flex {
+  /*display: flex;
+  justify-content: center;
+  margin-top: 30px;*/
+}
+
+.profile-url {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.user-account-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.user-account {
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  margin-right: 0px;
+}
+
+.user-account button {
+  margin-left: 0px;
+  margin-top: 8px;
+}
+
+.user-account h2 {
+  color: black;
+}
+
+.create-form {
+ display: flex;
+ flex-direction: column;
+}
+
+.create-form p {
+  text-align: center;
+  font-weight: 900;
+  cursor: pointer;
+  margin-top: -10px;
+}
+
+.fullscreen-container {
+  width: 150px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+    height: 30px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.fullscreen-container i {
+  color: black;
+  cursor: pointer;
+}
+
+.fullscreen-container p {
+  color: black;
+  font-weight: 600;
+}
+
+.fullscreen-flex {
+  display: flex;
+  justify-content: center;
+}
